@@ -1,5 +1,5 @@
+import { TaskService } from './../../services/task.service';
 import { Component } from '@angular/core';
-import { TASKS } from 'src/app/Tasks';
 import { TaskModel } from 'src/app/TaskModel';
 @Component({
   selector: 'app-tasks',
@@ -7,7 +7,22 @@ import { TaskModel } from 'src/app/TaskModel';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
-tasks: TaskModel[] = TASKS;
+tasks: TaskModel[] = [];
+constructor(private taskService: TaskService){}
+ 
+ngOnInit(): void {
+ this.taskService.getTasks().subscribe((tasks) => this.tasks = tasks);
 
+}
+
+deleteTask(task: TaskModel) {
+  this.taskService.deleteTask(task).subscribe(() => this.tasks = this.tasks.filter(t => t.id !== task.id));
+  
+}
+
+toggleReminder(task: TaskModel){
+  task.reminder = ! task.reminder;
+  this.taskService.updateTaskReminder(task).subscribe()
+}
 
 }

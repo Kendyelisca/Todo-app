@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Dentist Appointment",
+      "day": "July 3th at 2:30pm",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Building a VueJS app",
+      "day": "July 4th at 3:30pm",
+      "reminder": true
+    },
+    {
+        "id": 3,
+        "text": "Building a Task Traker angular app",
+        "day": "July 5th at 9:30pm",
+        "reminder": false
+      },
+      {
+        "id": 4,
+        "text": "Building a VueJS Task Tracker app",
+        "day": "July 6th at 8:30pm",
+        "reminder": true
+      },
+      {
+        "id": 5,
+        "text": "Building a ReactJS Task Tracker app",
+        "day": "July 4th at 9:30pm",
+        "reminder": true
+      }
+
+  ]
+}
