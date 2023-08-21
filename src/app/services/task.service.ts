@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TaskService {
-private apiUrl = 'http://localhost:5000/tasks'
+private apiUrl = 'https://task-backend-bcgz.onrender.com/tasks'
 
 
   constructor(private http: HttpClient) { 
@@ -35,6 +35,10 @@ private apiUrl = 'http://localhost:5000/tasks'
  updateTaskReminder(task: TaskModel): Observable<TaskModel> {
   const url =`${this.apiUrl}/${task.id}`;
   return this.http.put<TaskModel>(url, task, httpOptions)
+ }
+
+ addTask(task: TaskModel):Observable<TaskModel>{
+  return this.http.post<TaskModel>(this.apiUrl, task, httpOptions)
  }
 
 
